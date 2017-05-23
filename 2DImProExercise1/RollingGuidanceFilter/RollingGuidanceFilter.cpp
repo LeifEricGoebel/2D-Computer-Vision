@@ -1,10 +1,9 @@
-
-
+#include "stdafx.h">
 #include "RollingGuidanceFilter.h"
 
 int main(){
 
-	String name = "./imgs/image.png";
+	string name = "./imgs/image.png";
 
 	Mat img = imread(name);
 

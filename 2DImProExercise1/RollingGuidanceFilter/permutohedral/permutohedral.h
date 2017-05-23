@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#ifdef WIN32
+//#ifdef WIN64
 #include <windows.h>
 
 int gettimeofday(struct timeval *tp, void *tzp)
@@ -28,9 +28,9 @@ int gettimeofday(struct timeval *tp, void *tzp)
     tp->tv_usec = wtm.wMilliseconds * 1000;
     return (0);
 }
-#else
-#include <sys/time.h>
-#endif
+//#else
+//#include <sys/time.h>
+//#endif
 
 /***************************************************************/
 /* Hash table implementation for permutohedral lattice

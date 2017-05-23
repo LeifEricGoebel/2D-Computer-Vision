@@ -1,0 +1,11 @@
+﻿  RollingGuidanceFilter.cpp
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\rollingguidancefilter.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(27): warning C4244: '=': conversion from 'time_t' to 'long', possible loss of data
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(59): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(87): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(88): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(194): warning C4101: 't': unreferenced local variable
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(302): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\repositories\2dimageprocessing\2dimproexercise1\rollingguidancefilter\permutohedral\permutohedral.h(388): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+  RollingGuidanceFilter.vcxproj -> D:\Repositories\2DImageProcessing\2DImProExercise1\x64\Debug\RollingGuidanceFilter.exe
+  RollingGuidanceFilter.vcxproj -> D:\Repositories\2DImageProcessing\2DImProExercise1\x64\Debug\RollingGuidanceFilter.pdb (Partial PDB)
