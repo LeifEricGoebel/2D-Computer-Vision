@@ -71,12 +71,16 @@ public:
 		//Change type to float
 		img.convertTo(I,CV_MAKETYPE(CV_32F,img.channels()));
 
-		Mat res = I.clone();
+		//Mat res = I.clone();
+		Mat res;
+		Canny(img, res, 250.0, 290.0);
 
 		// Filtering
 		for(int i=0;i<iteration;i++){
-			if(i)res = bilateralPermutohedral(I,res,sigma_s,sigma_r);
-			else GaussianBlur(I,res,Size(0,0),sigma_s,sigma_s);
+			if(i)
+				res = bilateralPermutohedral(I,res,sigma_s,sigma_r);
+			else 
+				GaussianBlur(I,res,Size(0,0),sigma_s,sigma_s);
 		}
 
 		// Change type back

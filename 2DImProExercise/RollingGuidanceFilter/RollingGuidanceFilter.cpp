@@ -1,8 +1,8 @@
 #include "stdafx.h">
 #include "RollingGuidanceFilter.h"
 
-int main(){
-
+int main()
+{
 	string name = "./imgs/image.png";
 
 	Mat img = imread(name);
@@ -13,11 +13,17 @@ int main(){
 		exit(1);
 	}
 
+	/*Mat can;
+	Canny(img, can, 250.0, 290.0);*/
+
 	clock_t startTime = clock();
-	Mat res = RollingGuidanceFilter::filter(img,3,25.5,4);
+	Mat res = RollingGuidanceFilter::filter(img,3,25.5,10);
 	printf("Elapsed Time: %d ms\n",clock()-startTime);
 
+	
+
 	imshow("img",img);
+	//imshow("can", can);
 	imshow("res",res);
 	waitKey();
 
