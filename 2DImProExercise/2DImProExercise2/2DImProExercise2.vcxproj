@@ -99,6 +99,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="document.jpg" />
     <Image Include="mandrill.tiff" />
     <Image Include="SaltAndPepper.png" />
     <Image Include="tiffany.tiff" />

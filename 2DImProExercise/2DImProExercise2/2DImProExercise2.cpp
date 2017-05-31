@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	input = imread(argv[1]);
 	Mat med, bilat, guide, roll;
 	medianBlur(input, med, 5);	
-	imwrite("MedianFilter.png", med);
+	imwrite(std::string(argv[1]) + "MedianFilter.png", med);
 
 	bilateralFilter(input, bilat, 5, 1.0, 1.0);
 	imwrite(std::string(argv[1]) + "BilateralFilter.png", bilat);
