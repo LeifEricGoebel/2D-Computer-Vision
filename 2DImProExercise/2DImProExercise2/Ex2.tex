@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{floatflt}
-\usepackage{dsfont}	
+%\usepackage{dsfont}	
 %\usepackage{subscript}
 \usepackage{enumitem}
 \usepackage{amsbsy}
@@ -217,4 +217,14 @@
 	\end{figure}
 
 	Bilateral filter was applied using $\sigma_C = 1.0, \sigma_S = 1.0$, Median filter used $k = 5.0$, guided filter was given $r = 5.0, \varepsilon = 0.001$ and rolling guidance filter used default values. Those choices were made in each set of sample images.
+	
+	\textbf{Exercise 1}\\
+	\begin{itemize}
+		\item[1)] The human eye automatically tries to amplify the contrast of colors. In this way the eye ``overcompensates'' the yellow veil of the image and the labels of the rubics cube appear blue. For the blue veil its the other way around. \\
+		\item[2)] White balance is the effect of the surrounding light to the color values of an image. If most often changes the perception of white light and hence from all other colors in a similar way. The human brain adjusts this white balance automatically, whereas a camera can not do this. To adjust a camera one has to have an ``orientation'' area, which is supposed to be white. By applying a special filter, which uses the color value of the orientation area, one gets back a better result.\\
+		\item[3)] We assume we have a mask or filter, which tells us, how exactly the heat diffuses from iteration $i$ to $i+1$. Then we can use the Fourier Transform of the image, apply the filter by multiplying the fourier coefficients and get a result for the next iteration by using the inverse fourier transformation. If the filter works in a way in which the normal heat equation works the image should get more equal after every iteration until it reaches a stationary point and does not change at all anymore.\\
+		\item[4)] There are several filter, which we can apply. The easiest are e.g. mean and median filters. Others are bilateral and non-local filters. Both are a little bit more advanced, but also give better results. To maintain edges in an image (most often filter tend to blur the image a bit, but reduce noise) one has to take the edges itself into account and apply not only the filter but also edge detectors etc.\\
+		\item[5)] The hysteresis threshold is a threshold for edge detectors, which ensures that and edge is only detected as edge, if the gradient is sufficiently large and which continues the edge beginning at the start. This way one gets only ``strong'' edges and keep them connected as long as it is possible.\\
+		\item[6)] We think it should be possible to create an algorithm, which nearly draws lines as humans does, but not exactly like humans would do. The problem is to quantify and qualify the edges. Each human would draw lines in a different way. In the paper they averaged over all drawings they had to somewhat quantify the lines. This is a nice approach, but still just ``approximate'' the lines drawn.
+	\end{itemize}
 \end{document}
