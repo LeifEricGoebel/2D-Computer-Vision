@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #define PI 3.14159265
 
@@ -16,7 +17,7 @@ using namespace std;
 
 vector<double> ComputeHistogram(Mat *angle, Mat *mag, int d, int index_x, int index_y)
 {
-	vector<double> hist(d);
+	vector<double> hist(9);
 	for (int i = 0; i < d; ++i)
 	{
 		for (int j = 0; j < d; ++j)
@@ -24,7 +25,7 @@ vector<double> ComputeHistogram(Mat *angle, Mat *mag, int d, int index_x, int in
 			double x = angle->at<float>(Point(i + index_x*d, j + index_y*d));
 			int mod = ((int)floor(x) % 20) % 9;
 
-			hist[mod] = 20 * mod * mag->at<float>(i, j);
+			hist[mod] = (int)(20 * mod * mag->at<float>(i, j));
 		}
 	}
 	return hist;
@@ -57,26 +58,22 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 	{
 		for (int j = 0; j < size_y; ++j)
 		{
-			Mat tmp(cellsize, cellsize, CV_32F); // submatrix for the lines
-			Mat tmp2(cellsize, cellsize, CV_32F); // submatrix of angle
-			for (int k = 0; k < cellsize; ++k)
-			{
-				for (int m = 0; m < cellsize; ++m)
-				{
-					tmp.at<float>(Point(k, m)) = hist->at<float>(Point(k + cellsize*i, m + cellsize*j));
-				}
-			}
+			Mat tmp = Mat::zeros(cellsize, cellsize, CV_8U); // submatrix for the lines
+			//Mat tmp2(cellsize, cellsize, CV_32F); // submatrix of angle
+			
 
 			// compute line using (sin(x), sin(y)) representation
-			auto Max = std::max_element((*list)[i][j].begin(), (*list)[i][j].end());
+			auto Max = max_element((*list)[i][j].begin(), (*list)[i][j].end());
+			auto Min = min_element((*list)[i][j].begin(), (*list)[i][j].end());
+
 			for (int l = 0; l < 9; ++l)
 			{
 				Point p1(floor(cellsize / 2) + floor(cellsize/2)*sin((180.0 + l*20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((180.0 + l * 20) * (PI / 180)));
 				Point p2(floor(cellsize / 2) + floor(cellsize / 2)*sin((l * 20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((l * 20) * (PI / 180)));
 
-				int color = (*list)[i][j][l] / *Max * 255;
+				Scalar color = 255*((*list)[i][j][l] - *Min) / (*Max - *Min);
 
-				line(tmp, p1, p2,  color);
+				line(tmp, p1, p2, color);
 			}
 
 			// include calculation into histogram matrix (hist):
@@ -84,7 +81,7 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 			{
 				for (int m = 0; m < cellsize; ++m)
 				{
-					hist->at<float>(k + cellsize*i, m + cellsize*j) = tmp.at<float>(k, m);
+					hist->at<uchar>(k + cellsize*i, m + cellsize*j) = tmp.at<uchar>(k, m);
 				}
 			}
 		}
@@ -95,7 +92,7 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 int main(int argc, char **argv)
 {
 	Mat image = imread(argv[1]);
-	image.convertTo(image, CV_32F, 1 / 255.0);
+	//image.convertTo(image, CV_32F, 1 / 255.0);
 	Mat *im = &image;
 
 	string str = string(argv[2]);
@@ -112,7 +109,6 @@ int main(int argc, char **argv)
 		cerr << "Expected a double value as second input." << endl;
 		return -1;
 	}
-
 	Size imsize = image.size();
 	Size size(d * floor(imsize.width / d), d * floor(imsize.height / d));
 
@@ -121,12 +117,12 @@ int main(int argc, char **argv)
 	vector<vector<vector<double> > > resim(floor(imsize.width / d), vector<vector<double> >(floor(imsize.height / d), vector<double>(d)));
 	vector<vector<vector<double> > > *res = &resim; // Weil pointer lustig sind
 
-	Mat hist = Mat::zeros(size, CV_32F);
+	Mat hist = Mat::zeros(size, CV_8U);
 	Mat *his = &hist;
 
 	HistogramOrientedGradient(im, res, his, d); // stod: string to double conversion, stdlib.h
 
-	imwrite("HOG.png", 255 * hist); // war zu einfach, das zurück auf [0,255] zu skalieren :D
+	imwrite("HOG.png", hist); // war zu einfach, das zurück auf [0,255] zu skalieren :D
 
     return 0;
 }
