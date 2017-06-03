@@ -22,9 +22,9 @@ vector<double> ComputeHistogram(Mat *angle, Mat *mag, int d, int index_x, int in
 		for (int j = 0; j < d; ++j)
 		{
 			double x = angle->at<float>(Point(i + index_x*d, j + index_y*d));
-			int mod = (int)floor(x) % 20;
-			mod = mod % 9;
-			hist[mod] = x * mag->at<float>(i, j);
+			int mod = ((int)floor(x) % 20) % 9;
+
+			hist[mod] = 20 * mod * mag->at<float>(i, j);
 		}
 	}
 	return hist;
@@ -71,12 +71,12 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 			auto Max = std::max_element((*list)[i][j].begin(), (*list)[i][j].end());
 			for (int l = 0; l < 9; ++l)
 			{
-				Point p1(cellsize*sin((180.0 + l*20) * (PI / 180)), cellsize*cos((180.0 + l * 20) * (PI / 180)));
-				Point p2(cellsize*sin((l * 20) * (PI / 180)), cellsize*cos((l * 20) * (PI / 180)));
+				Point p1(floor(cellsize / 2) + floor(cellsize/2)*sin((180.0 + l*20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((180.0 + l * 20) * (PI / 180)));
+				Point p2(floor(cellsize / 2) + floor(cellsize / 2)*sin((l * 20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((l * 20) * (PI / 180)));
 
-				double val = (*list)[i][j][l];
+				int color = (*list)[i][j][l] / *Max * 255;
 
-				line(tmp, p1, p2,  val / *Max * 255.0);
+				line(tmp, p1, p2,  color);
 			}
 
 			// include calculation into histogram matrix (hist):
