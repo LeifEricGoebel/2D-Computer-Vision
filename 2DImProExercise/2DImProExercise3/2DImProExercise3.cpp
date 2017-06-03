@@ -63,7 +63,7 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 			{
 				for (int m = 0; m < cellsize; ++m)
 				{
-					tmp.at<float>(Point(k, m)) = image->at<float>(Point(k + cellsize*i, m + cellsize*j));
+					tmp.at<float>(Point(k, m)) = hist->at<float>(Point(k + cellsize*i, m + cellsize*j));
 				}
 			}
 
@@ -89,6 +89,7 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 			}
 		}
 	}
+	return;
 }
 
 int main(int argc, char **argv)
