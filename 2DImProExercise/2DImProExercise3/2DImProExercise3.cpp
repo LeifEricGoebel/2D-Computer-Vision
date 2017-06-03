@@ -23,6 +23,8 @@ vector<double> ComputeHistogram(Mat *angle, Mat *mag, int d, int index_x, int in
 		for (int j = 0; j < d; ++j)
 		{
 			double x = angle->at<float>(Point(i + index_x*d, j + index_y*d));
+			// calculate first: 18 bins of width 20 degrees
+			// calculate then : 9 bins of with 20 degrees with "i + 180" degrees is in the same equivalence class of "i":
 			int mod = ((int)floor(x) % 20) % 9;
 
 			hist[mod] = (int)(20 * mod * mag->at<float>(i, j));
@@ -33,10 +35,12 @@ vector<double> ComputeHistogram(Mat *angle, Mat *mag, int d, int index_x, int in
 
 void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *list, Mat *hist, double cellsize)
 {
+	// use sobel filter to compute the finite differences to approximate the gradient of the image in x and y direction:
 	Mat gx, gy;
 	Sobel(*image, gx, CV_32F, 1, 0, 1);
 	Sobel(*image, gy, CV_32F, 0, 1, 1);
 
+	// compute gradient magniture and phase out of finite differences in x and y direction:
 	Mat mag, angle;
 	cartToPolar(gx, gy, mag, angle, 1);
 	Mat *ma = &mag, *an = &angle;
@@ -44,8 +48,7 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 	size_t size_x = list->size();
 	size_t size_y = (*list)[0].size();
 
-	
-
+	// create and fill a 2D list containing the histogram as list of size 9 (as desired):
 	for (int i = 0; i < size_x; ++i)
 	{
 		for (int j = 0; j < size_y; ++j)
@@ -68,11 +71,14 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 
 			for (int l = 0; l < 9; ++l)
 			{
+				// calculate 2 points defining the line using the that i+180 and i lie in the same equivalence class:
 				Point p1(floor(cellsize / 2) + floor(cellsize/2)*sin((180.0 + l*20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((180.0 + l * 20) * (PI / 180)));
 				Point p2(floor(cellsize / 2) + floor(cellsize / 2)*sin((l * 20) * (PI / 180)), floor(cellsize / 2) + floor(cellsize / 2)*cos((l * 20) * (PI / 180)));
 
+				// color of the line depending of the value of the histogram value corresponding to the angle:
 				Scalar color = 255*((*list)[i][j][l] - *Min) / (*Max - *Min);
 
+				// calculate the line:
 				line(tmp, p1, p2, color);
 			}
 
@@ -91,38 +97,42 @@ void HistogramOrientedGradient(Mat *image, vector<vector<vector<double> > > *lis
 
 int main(int argc, char **argv)
 {
+	if (argc > 3) // argv[0] contains the path to the executable
+	{
+		cerr << "Too many input arguments." << endl;
+		return -2;
+	}
 	Mat image = imread(argv[1]);
-	//image.convertTo(image, CV_32F, 1 / 255.0);
-	Mat *im = &image;
 
 	string str = string(argv[2]);
 	istringstream iss(str);
 	double d;
 	iss >> d;
-	if (argc > 3)
-	{
-		cerr << "Too many input arguments." << endl;
-		return -2;
-	}
+
+	// check if 2nd input argument (actually 3rd) is of type double:
 	if (!iss.eof())
 	{
 		cerr << "Expected a double value as second input." << endl;
 		return -1;
 	}
+
+	// resize image such that is can hold as many complete cells as possible:
 	Size imsize = image.size();
 	Size size(d * floor(imsize.width / d), d * floor(imsize.height / d));
 
 	resize(image, image, size);
 
-	vector<vector<vector<double> > > resim(floor(imsize.width / d), vector<vector<double> >(floor(imsize.height / d), vector<double>(d)));
-	vector<vector<vector<double> > > *res = &resim; // Weil pointer lustig sind
-
 	Mat hist = Mat::zeros(size, CV_8U);
+	vector<vector<vector<double> > > resim(floor(imsize.width / d), vector<vector<double> >(floor(imsize.height / d), vector<double>(d)));
+
+	// using pointer in function calls is more efficient:
+	Mat *im = &image;
+	vector<vector<vector<double> > > *res = &resim; 
 	Mat *his = &hist;
 
 	HistogramOrientedGradient(im, res, his, d); // stod: string to double conversion, stdlib.h
 
-	imwrite("HOG.png", hist); // war zu einfach, das zurück auf [0,255] zu skalieren :D
+	imwrite("HOG.png", hist);
 
     return 0;
 }
