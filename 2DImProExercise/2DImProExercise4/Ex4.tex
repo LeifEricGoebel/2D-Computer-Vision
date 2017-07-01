@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{authblk} % The pack­age re­de­fines the \au­thor com­mand to work as nor­mal or to al­low a foot­note style of au­thor/af­fil­i­a­tion in­put. 
+\usepackage[english]{babel} % language, spelling, grammar, ...
+\usepackage[utf8]{inputenc} % The pack­age trans­lates var­i­ous stan­dard and other in­put en­cod­ings into a ‘LaTeX in­ter­nal lan­guage.
+
+\usepackage{amsbsy} % The pack­age pro­vides a com­mand for pro­duc­ing bold math­e­mat­ics sym­bols where ap­pro­pri­ate fonts ex­ist, and a ‘poor man’s bold’ com­mand that can be ap­plied when no ap­pro­pri­ate bold font is avail­able.
+%\usepackage{amssymb} 
+\usepackage{amsmath} % When ams­math is loaded, AMS-LaTeX pack­ages ams­bsy (for bold sym­bols), am­sopn (for op­er­a­tor names) and am­s­text (for text em­bed­ded in math­e­mat­ics) are also loaded.
+\usepackage{amsthm} % The pack­age fa­cil­i­tates the kind of the­o­rem setup typ­i­cally needed in Amer­i­can Math­e­mat­i­cal So­ci­ety pub­li­ca­tions. The pack­age of­fers the the­o­rem setup of the AMS doc­u­ment classes (am­sart, ams­book, etc.) en­cap­su­lated in LaTeX pack­age form so that it can be used with other doc­u­ment classes.
+\usepackage{amsfonts} % An ex­tended set of fonts for use in math­e­mat­ics, in­clud­ing: ex­tra math­e­mat­i­cal sym­bols; black­board bold let­ters (up­per­case only); frak­tur let­ters; sub­script sizes of bold math italic and bold Greek let­ters; sub­script sizes of large sym­bols such as sum and prod­uct
+\usepackage{fixmath} % LaTeX’s de­fault style of type­set­ting math­e­mat­ics does not com­ply with the In­ter­na­tional Stan­dards.
+\usepackage{mathtools} % Math­tools pro­vides a se­ries of pack­ages de­signed to en­hance the ap­pear­ance of doc­u­ments con­tain­ing a lot of math­e­mat­ics
+\usepackage{breqn} % The pack­age pro­vides so­lu­tions to a num­ber of com­mon dif­fi­cul­ties in writ­ing dis­played equa­tions and get­ting high-qual­ity out­put. For ex­am­ple, it is a well-known in­con­ve­nience that if an equa­tion must be bro­ken into more than one line, ‘left...right’ con­structs can­not span lines. The breqn pack­age makes them work as one would ex­pect whether or not there is an in­ter­ven­ing line break.
+
+\usepackage{extsizes} % Pro­vides classes ex­tar­ti­cle, ex­tre­port, extlet­ter, ext­book and extproc which pro­vide for doc­u­ments with a base font size from 8–20pt
+\usepackage{enumitem} % This pack­age pro­vides user con­trol over the lay­out of the three ba­sic list en­vi­ron­ments: enu­mer­ate, item­ize and de­scrip­tion
+\usepackage{floatflt} % The pack­age can float text around fig­ures and ta­bles which do not span the full width of a page; it im­proves upon float­fig, and al­lows ta­bles/fig­ures to be set left/right or al­ter­nat­ing on even/odd pages
+\usepackage{float} % Im­proves the in­ter­face for defin­ing float­ing ob­jects such as fig­ures and ta­bles. In­tro­duces the boxed float, the ruled float and the plain­top float. You can de­fine your own floats and im­prove the be­haviour of the old ones
+\usepackage{graphicx} % The pack­age builds upon the graph­ics pack­age, pro­vid­ing a key-value in­ter­face for op­tional ar­gu­ments to the \in­clude­graph­ics com­mand. This in­ter­face pro­vides fa­cil­i­ties that go far be­yond what the graph­ics pack­age of­fers on its own.
+\usepackage{subcaption} % The pack­age pro­vides a means of us­ing fa­cil­i­ties analagous to those of the cap­tion pack­age, when writ­ing cap­tions for sub­fig­ures and the like
+\usepackage{dsfont} 
+
+\usepackage{hyperref} % The hy­per­ref pack­age is used to han­dle cross-ref­er­enc­ing com­mands in LaTeX to pro­duce hy­per­text links in the doc­u­ment
+\usepackage[english]{cleveref} % The pack­age en­hances LaTeX's cross-ref­er­enc­ing fea­tures, al­low­ing the for­mat of ref­er­ences to be de­ter­mined au­to­mat­i­cally ac­cord­ing to the type of ref­er­ence.
+\usepackage{tabularx} % The pack­age de­fines an en­vi­ron­ment tab­u­larx, an ex­ten­sion of tab­u­lar which has an ad­di­tional col­umn des­ig­na­tor, X, which cre­ates a para­graph-like col­umn whose width au­to­mat­i­cally ex­pands so that the de­clared width of the en­vi­ron­ment is filled
+\usepackage{xcolor} % The pack­age starts from the ba­sic fa­cil­i­ties of the color pack­age, and pro­vides easy driver-in­de­pen­dent ac­cess to sev­eral kinds of color tints, shades, tones, and mixes of ar­bi­trary col­ors
+\usepackage{fullpage} % This pack­age sets all 4 mar­gins to be ei­ther 1 inch or 1.5 cm, and spec­i­fies the page style. The pack­age is part of the preprint bun­dle
+\usepackage{tikz,pgfplots} % pgf is a macro pack­age for cre­at­ing graph­ics. It is plat­form- and for­mat-in­de­pen­dent and works to­gether with the most im­por­tant TeX back­end drivers, in­clud­ing pdfTeX and dvips. It comes with a user-friendly syn­tax layer called TikZ.
+
+\usepackage{verbatim} % The ver­ba­tim pack­age reim­ple­ments the LaTeX ver­ba­tim and ver­ba­tim* en­vi­ron­ments. The pack­age also pro­vides a com­ment en­vi­ron­ment (that skips ev­ery­thing be­tween \be­gin{com­ment} and \end{com­ment}), and a com­mand \ver­ba­tim­in­put for type­set­ting the con­tents of a file, ver­ba­tim
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Legt die EinrückTiefe der ersten Zeile für alle folgenden Absätze fest:
+\parindent0pt
+
+% set colors for citation, links, references:
+\hypersetup{
+	colorlinks,
+	citecolor=orange,
+	filecolor=indigo,
+	linkcolor=orange,
+	urlcolor=blue
+}
+
+\newtheorem{thm}{Problem}
+
+\DeclareMathOperator*{\prox}{Prox}
+\DeclareMathOperator*{\proj}{Proj}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\ds}{ds}
+
+\begin{document}
+	\author[1]{	Marcel A. Brusius,
+				Leif Eric Goebel
+	}
+	\date{\today}
+	\title{Exercise 4}
+	\maketitle
+	\begin{tikzpicture}[remember picture,overlay]
+	\node [anchor=north west, inner xsep=0pt, inner ysep=0.455cm] at (current page.north west) {\includegraphics[width=60mm]{Logo/tukl_logo_left.png}};
+	\end{tikzpicture}
+	
+	\section*{SVMs}
+	\begin{thm}
+		Lecture 9 - Slide 16 [...]
+	\end{thm}
+
+	\begin{thm}
+		Due to linear classifiers being restricted to only two classes at a time, it would be necessary to consecutively apply one class versus the otheres combined. Therefore in case of multiple classes, nearest neighbor (NN) classifier is a better choice. Another advantage of NN classifiers is its ability to be used in learning methods. On the other hand, for small amount of classes, e.g. at most two or three, it is better to use linear classifier since it is faster. To overcome one disadvantage of linear classifiers, it is possible to map data using PCA into a different space where the data is linearly separable.
+		Summing up, there is no better method for general problems, since both have their advantages and disadvantages.
+	\end{thm}
+	
+	\begin{thm}
+		A linear program is a linear optimization problem with linear constraints. Its dual program is again a linear optimization program. In case of strong duality of both problems, the duality gap, i.e. the difference of the optimal values of primal and dual problem, equals zero. Since this is not neccessarily the case for any linear program, there is a weaker  statement that guarantees a bound on the optimal value of the primal program.
+		In a lot of cases, the primal problem is rather difficult to solve, so solving a possibly easiser dual problem is a good alternative way, even if there is no strong duality.
+	\end{thm}
+
+	\begin{thm}
+		Lecture 9 - Slides 63-66 [...]
+	\end{thm}
+
+	\begin{thm}
+		The validation set serves as a test to find the best possible model which has been trainded beforehands. [...]
+	\end{thm}
+
+	\begin{thm}
+		Support vector machines have a similar limitation as linear classifiers. Only two classes at a time can be handled, so there is an iterative scheme neccessary in order to deal with an arbitrary amount of classes. Also, there is a limitation given by memory consiumption and computation time. [...]
+	\end{thm}
+
+
+	\section*{Boosting, face detection and recognition}
+	
+	\begin{thm}
+		Of course, we can use integral images for non-rectangular features since all features are discreticed with respect to pixel grid. So with rather much effort, it is possible to use integral images with e.g. ellipsiodal features. Another disadvantage, besides much effort, it is harder to adapt to different feature sizes since more pixels are involved.
+	\end{thm}
+
+	\begin{thm}
+		Lecture 10 - Slide 17 [...]
+	\end{thm}
+
+	\begin{thm}
+		[...] If the $(Z_t)_t$ which serve as normalization factors are applied before multiplying by $\exp(\pm\alpha_t)$, then there is no upper bound on the weights. On the other hand if normalization is applied afterwards, then the weights are bounded by one from above.
+	\end{thm}
+
+	\begin{thm}
+		Lecture 10 - Slide 33 [...]
+	\end{thm}
+
+	\begin{thm}
+		[...]
+	\end{thm}
+
+	\begin{thm}
+		Lecture 10 - Slide 56 [...]
+	\end{thm}
+	
+%	\bibliographystyle{abbrv}
+%	\bibliography{Bibliography}
+\end{document}

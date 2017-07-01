@@ -15,3 +15,11 @@
 /2DImProExercise/2DImProExercise2/Ex2.aux
 /2DImProExercise/2DImProExercise3/2DImProExercise3/x64/Debug
 /2DImProExercise/2DImProExercise3/x64/Debug
+
+*.out
+
+*.log
+
+*.aux
+
+*.gz
