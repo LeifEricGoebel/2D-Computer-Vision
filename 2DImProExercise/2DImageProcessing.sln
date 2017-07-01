@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DImProExercise1", "2DImProExercise1\2DImProExercise1.vcxproj", "{9D3E97FC-E707-49B1-AF68-724E169D2AFB}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RollingGuidanceFilter", "RollingGuidanceFilter\RollingGuidanceFilter.vcxproj", "{8B2C1C98-2374-4AE0-B8C8-89B6D10496D0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DImProExercise3", "2DImProExercise3\2DImProExercise3.vcxproj", "{1773B361-FD60-4D08-97AB-014C65A24B6E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DImProExercise4", "2DImProExercise4\2DImProExercise4.vcxproj", "{33883340-C883-4168-893A-CA3F87CAA7E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,14 @@ Global
 		{1773B361-FD60-4D08-97AB-014C65A24B6E}.Release|x64.Build.0 = Release|x64
 		{1773B361-FD60-4D08-97AB-014C65A24B6E}.Release|x86.ActiveCfg = Release|Win32
 		{1773B361-FD60-4D08-97AB-014C65A24B6E}.Release|x86.Build.0 = Release|Win32
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Debug|x64.ActiveCfg = Debug|x64
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Debug|x64.Build.0 = Debug|x64
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Debug|x86.ActiveCfg = Debug|Win32
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Debug|x86.Build.0 = Debug|Win32
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Release|x64.ActiveCfg = Release|x64
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Release|x64.Build.0 = Release|x64
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Release|x86.ActiveCfg = Release|Win32
+		{33883340-C883-4168-893A-CA3F87CAA7E2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

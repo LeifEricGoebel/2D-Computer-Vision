@@ -23,3 +23,7 @@
 *.aux
 
 *.gz
+
+*.tlog
+
+2DImProExercise/2DImProExercise4/x64/Debug/
