@@ -69,14 +69,19 @@
 				\item spacial coherence: since bubbles do not vanish while being in the liquid, points should move similarly with respect to their neighbors.
 			\end{itemize}
 		\item ...
-		\item ...
+		\item 
+			\begin{itemize}
+				\item Consider a transparent plane with some colored dots on it. Let the background either be very far away or unicolored. Moving the mentioned plane in any direction yields the neighbors of the dots moving differently, so violating neighbor consistency property.
+				\item Consider a car that drives at night and enters a street light during the observed time period. Then the brightness consistancy does not hold anymore.
+				\item Consider a car driving on a motorway with high velocity. If the camera's shutter frequency is not fast enough the resulting motion of the car is too large and the Lucas-Kanade optical flow fails.
+			\end{itemize}
 		\item ...
 	\end{enumerate}
 	
 	\section*{Bayes Filter}
 	\begin{enumerate}
-		\item We use a distribution function to estimate the probability where an object might be located after a timestep. Using additional sensor data, we are able to compute another probability region where the object should be. Using both steps together, we are able to correct the measurements and therefore are more likely to get a robust estimation of the current location of the object. The main idea of doint this iteratively, is to prevent divergence of the model, due to insuffiencient measurements.
-		\item ...
+		\item We use a distribution function to estimate the probability where an object might be located after a timestep. Using additional sensor data, we are able to compute another probability region where the object should be. Using both steps together, we are able to correct the measurements and therefore are more likely to get a robust estimation of the current location of the object. The main idea of doing this iteratively, is to prevent divergence of the model, due to insuffiencient measurements.
+		\item The state contains all information that we want to know about the system. Color can also be seen as a state, as shown in the lecture on July 11.
 		\item 
 			\begin{equation*}
 				L(x_t) = \eta p(z_t | x_t) \int p(x_t | x_{t - 1}, u_t) L(x_{t-1}) dx_{t-1}
@@ -88,9 +93,13 @@
 			\end{itemize}
 	\end{enumerate}
 
-	\section*{Bayes Filter}
+	\section*{Kalman Filter}
 	\begin{enumerate}
-		\item Markov assumption states that the currently observed state $x_t$ depends only on the previous state $x_{t-1}$. The assumption for example holds in case of the random walk in $\mathbb{R}^d$. An example where the assumption is violated is Fibonacci's sequence, where each state depends on the previous two states.
+		\item Markov assumption states that the currently observed state $x_t$ depends only on the previous state $x_{t-1}$. The assumption for example holds in case of the random walk in $\mathbb{R}^d$. An example where the assumption is violated is Fibonacci's sequence
+		\begin{equation*}
+			x_{t} = x_{t-1} + x_{t-2},
+		\end{equation*}
+		where each state depends on the previous two states.
 		\item ...
 	\end{enumerate}
 
