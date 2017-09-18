@@ -9,7 +9,7 @@ int main()
 
 	if( !face_cascade.load( "haarcascade_frontalface_alt.xml" ) ) { printf( "--(!)Error loading\n" ); return -1; };
 	
-	int in = 2;
+	int in;
 	do
 	{
 		cout << "For the default example, enter ""1""." << endl;
