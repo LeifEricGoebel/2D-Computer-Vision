@@ -1,0 +1,542 @@
+\documentclass[12pt]{article}
+\usepackage{authblk} % The pack­age re­de­fines the \au­thor com­mand to work as nor­mal or to al­low a foot­note style of au­thor/af­fil­i­a­tion in­put. 
+\usepackage[english]{babel} % language, spelling, grammar, ...
+\usepackage[utf8]{inputenc} % The pack­age trans­lates var­i­ous stan­dard and other in­put en­cod­ings into a ‘LaTeX in­ter­nal lan­guage.
+
+\usepackage{amsbsy} % The pack­age pro­vides a com­mand for pro­duc­ing bold math­e­mat­ics sym­bols where ap­pro­pri­ate fonts ex­ist, and a ‘poor man’s bold’ com­mand that can be ap­plied when no ap­pro­pri­ate bold font is avail­able.
+%\usepackage{amssymb} 
+\usepackage{amsmath} % When ams­math is loaded, AMS-LaTeX pack­ages ams­bsy (for bold sym­bols), am­sopn (for op­er­a­tor names) and am­s­text (for text em­bed­ded in math­e­mat­ics) are also loaded.
+\usepackage{amsthm} % The pack­age fa­cil­i­tates the kind of the­o­rem setup typ­i­cally needed in Amer­i­can Math­e­mat­i­cal So­ci­ety pub­li­ca­tions. The pack­age of­fers the the­o­rem setup of the AMS doc­u­ment classes (am­sart, ams­book, etc.) en­cap­su­lated in LaTeX pack­age form so that it can be used with other doc­u­ment classes.
+\usepackage{amsfonts} % An ex­tended set of fonts for use in math­e­mat­ics, in­clud­ing: ex­tra math­e­mat­i­cal sym­bols; black­board bold let­ters (up­per­case only); frak­tur let­ters; sub­script sizes of bold math italic and bold Greek let­ters; sub­script sizes of large sym­bols such as sum and prod­uct
+\usepackage{fixmath} % LaTeX’s de­fault style of type­set­ting math­e­mat­ics does not com­ply with the In­ter­na­tional Stan­dards.
+\usepackage{mathtools} % Math­tools pro­vides a se­ries of pack­ages de­signed to en­hance the ap­pear­ance of doc­u­ments con­tain­ing a lot of math­e­mat­ics
+\usepackage{breqn} % The pack­age pro­vides so­lu­tions to a num­ber of com­mon dif­fi­cul­ties in writ­ing dis­played equa­tions and get­ting high-qual­ity out­put. For ex­am­ple, it is a well-known in­con­ve­nience that if an equa­tion must be bro­ken into more than one line, ‘left...right’ con­structs can­not span lines. The breqn pack­age makes them work as one would ex­pect whether or not there is an in­ter­ven­ing line break.
+
+\usepackage{extsizes} % Pro­vides classes ex­tar­ti­cle, ex­tre­port, extlet­ter, ext­book and extproc which pro­vide for doc­u­ments with a base font size from 8–20pt
+\usepackage{enumitem} % This pack­age pro­vides user con­trol over the lay­out of the three ba­sic list en­vi­ron­ments: enu­mer­ate, item­ize and de­scrip­tion
+\usepackage{floatflt} % The pack­age can float text around fig­ures and ta­bles which do not span the full width of a page; it im­proves upon float­fig, and al­lows ta­bles/fig­ures to be set left/right or al­ter­nat­ing on even/odd pages
+\usepackage{float} % Im­proves the in­ter­face for defin­ing float­ing ob­jects such as fig­ures and ta­bles. In­tro­duces the boxed float, the ruled float and the plain­top float. You can de­fine your own floats and im­prove the be­haviour of the old ones
+\usepackage{graphicx} % The pack­age builds upon the graph­ics pack­age, pro­vid­ing a key-value in­ter­face for op­tional ar­gu­ments to the \in­clude­graph­ics com­mand. This in­ter­face pro­vides fa­cil­i­ties that go far be­yond what the graph­ics pack­age of­fers on its own.
+\usepackage{subcaption} % The pack­age pro­vides a means of us­ing fa­cil­i­ties analagous to those of the cap­tion pack­age, when writ­ing cap­tions for sub­fig­ures and the like
+\usepackage{dsfont} 
+
+\usepackage{hyperref} % The hy­per­ref pack­age is used to han­dle cross-ref­er­enc­ing com­mands in LaTeX to pro­duce hy­per­text links in the doc­u­ment
+\usepackage[english]{cleveref} % The pack­age en­hances LaTeX's cross-ref­er­enc­ing fea­tures, al­low­ing the for­mat of ref­er­ences to be de­ter­mined au­to­mat­i­cally ac­cord­ing to the type of ref­er­ence.
+\usepackage{tabularx} % The pack­age de­fines an en­vi­ron­ment tab­u­larx, an ex­ten­sion of tab­u­lar which has an ad­di­tional col­umn des­ig­na­tor, X, which cre­ates a para­graph-like col­umn whose width au­to­mat­i­cally ex­pands so that the de­clared width of the en­vi­ron­ment is filled
+\usepackage{xcolor} % The pack­age starts from the ba­sic fa­cil­i­ties of the color pack­age, and pro­vides easy driver-in­de­pen­dent ac­cess to sev­eral kinds of color tints, shades, tones, and mixes of ar­bi­trary col­ors
+\usepackage{fullpage} % This pack­age sets all 4 mar­gins to be ei­ther 1 inch or 1.5 cm, and spec­i­fies the page style. The pack­age is part of the preprint bun­dle
+\usepackage{tikz,pgfplots} % pgf is a macro pack­age for cre­at­ing graph­ics. It is plat­form- and for­mat-in­de­pen­dent and works to­gether with the most im­por­tant TeX back­end drivers, in­clud­ing pdfTeX and dvips. It comes with a user-friendly syn­tax layer called TikZ.
+
+\usepackage{verbatim} % The ver­ba­tim pack­age reim­ple­ments the LaTeX ver­ba­tim and ver­ba­tim* en­vi­ron­ments. The pack­age also pro­vides a com­ment en­vi­ron­ment (that skips ev­ery­thing be­tween \be­gin{com­ment} and \end{com­ment}), and a com­mand \ver­ba­tim­in­put for type­set­ting the con­tents of a file, ver­ba­tim
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Legt die EinrückTiefe der ersten Zeile für alle folgenden Absätze fest:
+\parindent0pt
+
+% set colors for citation, links, references:
+\hypersetup{
+	colorlinks,
+	citecolor=orange,
+	filecolor=indigo,
+	linkcolor=orange,
+	urlcolor=blue
+}
+
+\DeclareMathOperator*{\prox}{Prox}
+\DeclareMathOperator*{\proj}{Proj}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\DeclareMathOperator*{\ds}{ds}
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\sign}{sign}
+
+\begin{document}
+	\author[1]{Marcel A. Brusius}
+	\date{\today}
+	\title{Summay: 2D Image Processing}
+	\maketitle
+%	\begin{tikzpicture}[remember picture,overlay]
+%	\node [anchor=north west, inner xsep=0pt, inner ysep=0.455cm] at (current page.north west) {\includegraphics[width=60mm]{Logo/tukl_logo_left.png}};
+%	\end{tikzpicture}	
+	
+	\section{Edges and Corners}
+	\subsection{Causes of intensity changes}
+	
+	\begin{itemize}
+		\item boundary discontinuities
+		\item depth discontinuities
+		\item color/texture discontinuities
+		\item illumination changes
+		\item specularities
+		\item shadows
+	\end{itemize}
+	
+	\subsection{Edge descriptors}
+	
+	\begin{itemize}
+		\item[edge direction] Perpendicular to the direction of maximum intensity change
+		\item[edge strength] Related to the local image contrast along the normal
+		\item[edge position] The image position at which the edge is located
+	\end{itemize}
+
+	Edges correspond to extrema of derivatives.
+	\begin{align}
+		\nabla f &=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right] \\
+		\theta &= \tan^{-1}\left( \frac{\partial f}{\partial x} / \frac{\partial f}{\partial y} \right)
+	\end{align}
+	
+	\subsection{Edges and noise}
+	Edges are detected using finite differences 
+	\begin{itemize}
+		\item[$\Rightarrow$] strong response to noise
+		\item[$\Rightarrow$] use some smoothing beforehand
+		\item[$\Rightarrow$] often convolution with derivative of a Gaussian kernel $f \star \frac{d}{dx}g$
+	\end{itemize} 
+
+	\subsection{Optimal edge detector}
+	\begin{itemize}
+		\item[good detection] minimize probability of false positives and false negatives
+		\item[good localization] detected edges have to be as close as possible to true edges
+		\item[single response] detector must return one point only for each true edge point (minimize number of local maxima around true edge)
+	\end{itemize}
+
+	\subsection{Canny edge detector}
+	\begin{itemize}
+		\item filter image with derivative of Gaussian
+		\item find magnitude and orientation of gradient
+		\item non-maxima suppression
+		\item linking and thresholding $\Rightarrow$ two thresholds (hysteresis)
+			\begin{itemize}
+				\item high threshold: start edge curve
+				\item low threshold: continue edge curve
+				\item hysteresis: suppress isolated pixels, as they are more likely to be a result of noise
+			\end{itemize}
+	\end{itemize}
+
+	\subsection{Corner classification}
+	\begin{itemize}
+		\item[flat] no change in any direction
+		\item[edge] no change along the edge direction
+		\item[corner] significant change in all directions
+	\end{itemize}
+
+	\subsection{Harris corner detector}
+	
+	\begin{itemize}
+		\item Error function
+			\begin{equation}
+				E(u,v) = \sum_{(x,y) \in W} \left[ I(x+u,y+v) - I(x,y) \right]^2
+			\end{equation}
+		\item Small motion assumption:
+		\begin{itemize}
+			\item Taylor expansion
+			\item Ignore 2nd order terms and higher order terms
+		\end{itemize}
+		\item Error function after Taylor
+		\begin{align}
+		E(u,v) &= \sum_{(x,y) \in W} 
+		\begin{pmatrix}
+		u & v
+		\end{pmatrix}
+		\underbrace{\begin{pmatrix}
+			I_x^2 & I_xI_y \\
+			I_yI_x& I_y^2
+			\end{pmatrix}}_{H}
+		\begin{pmatrix}
+		u \\ v
+		\end{pmatrix} \\
+		I_x &= \frac{\partial}{\partial x}G(x,y,\sigma_D) \cdot I(x_i,y_i) \\
+		I_y &= \frac{\partial}{\partial y}G(x,y,\sigma_D) \cdot I(x_i,y_i)
+		\end{align}
+		\item Differentiation scale $\sigma_D \Rightarrow$ smoothing prior to image derivative
+		\item Integration scale $\sigma_I \Rightarrow$ integrating derivative responses (Gaussian window size)
+		\begin{itemize}
+			\item[$\rightarrow$] $\sigma_I = \gamma \sigma_D$
+		\end{itemize}
+		\item Eigenvalues $\lambda_{+/-}$ of $H$
+		\item Choose points with large response $\lambda_{-} > T$, $T$ denotes the threshold
+		\item Choose points where $\lambda_{-}$ is a local maximum as features
+		\item Harris operator
+		\begin{equation}
+		f = \frac{\det(H)}{\tr(H)}
+		\end{equation}
+		\item Corner response, with empirical constant $k$,
+		\begin{equation}
+		R = \det(H) - k \tr(H)^2
+		\end{equation}
+		\begin{itemize}
+			\item corner: $R$ is large
+			\item edge: $R$ negative with large magnitude
+			\item flat: $|R|$ small
+		\end{itemize}
+		\item Rotation invariant
+		\item \textbf{PARTIALLY} invariant to linear intensity change
+		\item \textbf{NOT} invariant to scaling
+			\begin{itemize}
+				\item[$\rightarrow$] if scale known: set $\sigma_D, \sigma_I$ accordingly
+				\item[$\rightarrow$] if scale unknown detect interest points at multiple scales
+			\end{itemize}
+		\item \textbf{NOT} invariant to viewpoint change
+		\item \textbf{NOT} invariant to contrast change
+		\item most repeatable detector
+		
+	\end{itemize}
+
+	\subsection{Automatic scale selection}
+	\begin{itemize}
+		\item design a function $F(x, \sigma_n)$ which provides a local measurement
+			\begin{itemize}
+				\item should be rotation invariant
+				\item should have one stable sharp peak
+				\item Square gradient, LoG ($\rightarrow$ yields best results), DoG, Harris function
+			\end{itemize}
+		\item select points at which $F(x, \sigma_n)$ attains a maximal over $\sigma_n$
+		\item normalize image part to a fixed size
+		\item relation $\frac{\sigma_1}{\sigma_2}$ reveals scale factor between images
+	\end{itemize}
+	
+	\subsection{Blobs}
+	\begin{itemize}
+		\item superposition of two ripples
+		\item the magnitude of the Laplacian response will achieve a maximum at the center of the blob (if scale of Laplacian matches scale of blob)
+		\item Laplacian decays as scale increases
+			\begin{itemize}
+				\item[$\rightarrow$] multiply Gaussian derivative by $\sigma$
+				\item[$\rightarrow$] multiply Laplacian (2nd Gaussian derivative) by $\sigma^2$
+			\end{itemize}
+		\item characteristic scale
+			\begin{itemize}
+				\item scale that produces a peak of the Laplacian response in the blob center
+			\end{itemize}
+		\item Approximate the Laplacian with a difference of Gaussians
+			\begin{equation}
+				G(x,y,k\sigma) - G(x,y,\sigma) \approx (k-1)\sigma^2\nabla^2G
+			\end{equation}
+	\end{itemize}
+
+	\section{Optical flow}
+	
+	\subsection{Motion field}
+	The motion field is the projection of the 3D scene motion into the image
+	
+	\subsection{Optical flow}
+	\begin{itemize}
+		\item The apparent motion of brightness patterns in the image
+		\item \textbf{ideally}: optical flow = motion field
+		\item \textbf{in general} optical flow $\neq$ motion field
+			\begin{itemize}
+				\item apparent motion can be caused by lightning changes without any actual motion
+			\end{itemize}
+	\end{itemize}
+	
+	\subsection{Feature tracking}
+	\begin{itemize}
+		\item small motion $\Rightarrow$ easy to track
+		\item 
+	\end{itemize}
+
+	\textbf{Challenges}
+	\begin{itemize}
+		\item which features can be tracked
+		\item efficient tracking across frames
+		\item points may change appearance (moving to shadows, rotations)
+		\item drift error: accumulated small errors due to model update
+		\item appearing/disappearing points (add/delete)
+	\end{itemize}
+
+	\subsection{Assumptions}
+	\begin{itemize}
+		\item Brightness consistency
+			\begin{itemize}
+				\item Brightness in small regions remains the same across frames
+				\item Brightness Consistancy Equation
+					\begin{align}
+						I(x,y,t) &= I(x + u, y + v, t + 1) \\
+						I(x + u, y + v, t + 1) &\approx I(x,y,t) + I_xu + I_yv + I_t \\
+						0 &\approx I_xu + I_yv + I_t \\
+						0 &= \nabla I \cdot \begin{pmatrix} u & v \end{pmatrix}^T + I_t
+					\end{align}
+				\item One equation, two $(u, v)$ unknowns
+				\item[$\Rightarrow$] Aperture problem
+			\end{itemize}
+		\item Spatial coherence
+			\begin{itemize}
+				\item neighboring points belong to the same surface $\Rightarrow$ similar motion
+				\item project to nearby pixels $\Rightarrow$ spatial coherence
+				\item use brightness consistency equation and a windows of size $w \times w$
+				\item[$\Rightarrow$] obtain $w^2$ equations of the form
+					\begin{equation}
+						0 = \nabla I(p_i) \cdot \begin{pmatrix} u & v \end{pmatrix}^T + I_t(p_i), \qquad i = 1, \dots, w^2
+					\end{equation}
+				\item for RGB images$\colon 3\cdot w^2$ equaions
+				\item \textbf{Lucas-Kanade flow}: least squares problem
+					\begin{align}
+						\argmin_x \quad &\|Ax - b\|_2^2 \\
+						x = &(A^T A)^{-1}A^Tb
+					\end{align}
+				\item conditions on $A^TA$:
+					\begin{itemize}
+						\item should be invertible
+						\item should not be too small (due to noise, eigenvalue constraint)
+						\item should be well-conditioned (quotient $\frac{\lambda_1}{\lambda_2}$ should not be too large)
+					\end{itemize}
+				\item see criteria for Harris corner detector
+			\end{itemize}
+		\item Temporal persistence
+			\begin{itemize}
+				\item image motion of a surface patch changes gradually over time
+			\end{itemize}
+	\end{itemize}
+
+	\subsection{Computing optical flow}
+	\begin{itemize}
+		\item error in optical flow constraint
+			\begin{equation}
+				e_c = \int \int (I_xu + I_yv + I_t)^2 dx dy
+			\end{equation}
+		\item smoothness constraint
+			\begin{equation}
+				e_s = \int \int (u_x^2 + u_y^2) + (v_x^2 + v_y^2) dx dy
+			\end{equation}
+		\item penalizing error terms, find minimizer $(u,v)$ for
+			\begin{equation}
+				e = e_c + \lambda e_s
+			\end{equation}
+	\end{itemize}
+	
+	\subsection{Optical flow algorithm}
+	\begin{itemize}
+		\item differentiate $e$ with respect to $v_{i,j}$ and $u_{i,j}$, and set to zero
+		\item define mean values $\bar{v}_{i,j}, \bar{u}_{i,j}$ locally around pixel $(i,j)$
+		\item define update constant
+			\begin{equation}
+				\lambda^n = \frac{I_x^{i,j} \bar{u}_{i,j}^n + I_y^{i,j} \bar{v}_{i,j}^n + I_t^{i,j} }{\lambda +(I_x^{i,j})^2+ (I_y^{i,j})^2}
+			\end{equation}
+		\item optical flow update rule
+			\begin{align}
+				\bar{u}_{i,j}^{n+1} &= \bar{u}_{i,j}^n - \lambda^n I_x^{i,j} \\ \bar{v}_{i,j}^{n+1} &= \bar{v}_{i,j}^n - \lambda^n I_y^{i,j}
+			\end{align}
+	\end{itemize}
+	
+	\subsection{Aliasing in optical flow}
+	\begin{itemize}
+		\item temporal aliasing causes ambiguities in optical flow (many pixels with same intensity)
+		\item remedy: coarse-to-fine estimation (reduce resolution $\Rightarrow$ image pyramide)
+		\item image pyramide: iteratively apply Lucas-Kanade and upsample inbetween
+	\end{itemize}
+
+	\section{Support vectors}
+	\begin{itemize}
+		\item decision hyperplane $w^Tx + b = 0$
+		\item decision function $D(x_i) = \sign(w^Tx_i + b)$
+		\item margin hyperplanes:
+			\begin{align}
+				w^Tx + b = \gamma \\
+				w^Tx + b = -\gamma
+			\end{align}
+		\item scale invariant ($\gamma \equiv 1$)
+		\item maximize margin
+			\begin{equation}
+				\argmax_w \quad \frac{2}{\|w\|}
+			\end{equation}
+	\end{itemize}
+
+	\subsection{Nonlinear SVMs}
+	\begin{itemize}
+		\item map input space (data) into higher-dimensional feature space where the data is separable
+	\end{itemize}
+
+	\subsection{The kernel trick}
+	\begin{itemize}
+		\item define a kernel function $K$ such that
+			\begin{equation}
+				K(x,y) = \phi(x)\cdot\phi(y)
+			\end{equation}
+		\item linear SVM decision function ($\alpha_i$ learnt weight, $x_i$ support vector, $y_i$ class label)
+			\begin{equation}
+				w^Tx + b = \sum_i \alpha_i y_ix_i^Tx + b
+			\end{equation}
+		\item kernel SVM decision function
+			\begin{equation}
+				\sum_i \alpha_i y_i\phi(x_i)\phi(x) + b = \sum_i \alpha_i y_i K(x_i,x) + b
+			\end{equation}
+		\item polynomial kernel $K(x,y) = (c + x^Ty)^d, d \in  \mathbb{N}$
+		\item Gaussian kernel $K(x,y) = \exp( - \frac{1}{\sigma^2} \|x-y\|)$
+	\end{itemize}
+
+	\subsection{Over- and underfitting}
+	\begin{itemize}
+		\item Underfitting
+			\begin{itemize}
+				\item model does an equally poor job on training set and test set
+				\item probably training procedure ineffective
+				\item probably model too simple to represent data
+			\end{itemize}
+		\item Overfitting
+			\begin{itemize}
+				\item model fits irrelevant characteristics (noise) in training data
+				\item probably model too complex
+				\item probably amount of training data insufficient
+			\end{itemize}
+	\end{itemize}
+
+	\subsection{Validation}
+	\begin{itemize}
+		\item split data into training, validation and test set
+		\item use training to optimize model parameters
+		\item use validation to choose best model
+		\item use test set only to evaluate performance
+	\end{itemize}
+	
+	
+	\section{Integral images}
+	\begin{itemize}
+		\item compute a value for each pixel $(x,y)$ that represents the sum of all pixels above and to the left of $(x,y)$, inclusive
+		\item easy preprocessing step
+		\item evaluate ALL rectangle sizes in constant time
+		\item NO image scaling necessary
+		\item scale rectangular features instead
+	\end{itemize}
+
+	\section{AdaBoost}
+	\subsection{Boosting}
+	\begin{itemize}
+		\item classification scheme
+		\item combine \textit{weak} learners into a more accurate ensemble classifier
+		\item weak learner should be better than chance
+		\item during boosting round, select weak learner that does well on examples that were hard for previous weak learners
+		\item Complexity: $\mathcal{O}(MNK)$, $M$ rounds, $N$ examples, $K$ features
+	\end{itemize}
+
+	\subsection{Attentional cascade}
+	\begin{itemize}
+		\item start with simple classifier to reject many negative sub-windows while detecting almost all positive sub-windows
+		\item positive response triggers evaluation of second more complex classifier
+		\item negative response leads to immediate rejection of the sub-window
+		\item chain classifiers that are progressively more complex and have lower false positive rates
+	\end{itemize}
+
+	\subsection{Training the cascade}
+	\begin{itemize}
+		\item set target detection and false positive rates for each stage
+		\item keep adding features to the current stage until its target rates have been met
+		\item if overall false positive rate NOT low enough, add another stage
+		\item use false positives from current stage as negative training examples for next stage
+	\end{itemize}
+	
+	\subsection{Challenges}
+	\begin{itemize}
+		\item Lighting changes
+		\item Occlusion
+		\item Point of view
+	\end{itemize}
+
+	\subsection{Eigenfaces}
+	\begin{itemize}
+		\item most face images lie in a low-dimensional subspace given by the first $k<d$ directions of maximum variance
+		\item PCA $\Rightarrow$ determine vectors/eigenfaces $u_1, \dots, u_k$ that span the subspace
+		\item represent all faces in dataset as linear combination of eigenfaces
+	\end{itemize}
+
+	\section{Bayesian Tracking}
+	\subsection{Bayesian filtering}
+	\begin{itemize}
+		\item probability distributions represent our belief about the stage of a dynamical system
+		\item recursive cycle, repeat:
+			\begin{itemize}
+				\item predict from motion model
+				\item sensor measurement
+				\item correct prediction
+			\end{itemize}
+	\end{itemize}
+
+	\subsection{Notation}
+	\begin{itemize}
+		\item state: $x_t$ state of the system at time $t$
+		\item measurement: $z_t$ measurement at time $t$
+		\item measurement: $z_{t_1:t_2}$ measurement from time $t_1$ to $t_2$
+		\item control data: $u_t$ control data at time $t$, corresponds to the change of the state in time $]t-1,t]$
+		\item control data sequence: $u_{t_1:t_2} = u_{t_1},u_{t_1+1}, \dots, u_{t_2}$
+		\item Markov assumption:
+			\begin{align}
+				p(x_t|x_{0:t-1}, z_{1:t-1},u_{1:t}) &= p(x_t|x_{t-1}, u_t) \\
+				p(z_t|x_{0:t}, z_{1:t-1},u_{1:t}) &= p(z_t|x_t)
+			\end{align}
+	\end{itemize}
+
+	\subsection{Bayesian inference}
+	\begin{itemize}
+		\item Posterior distribution after including measurement $z_t$: $\text{bel}(x_t) = p(x_t|z_{1:t},u_{1:t})$
+		\item Prediction before including measurement $z_t$: $\overline{\text{bel}}(x_t) = p(x_t|z_{1:t-1},u_{1:t})$
+	\end{itemize}
+	
+	\subsection{Recursive Bayesian filtering}
+	\begin{equation}
+		\underbrace{\text{bel}(x_t)}_{\text{posterior}} = \eta \underbrace{p(z_t|x_t)}_{\text{likelihood}} \underbrace{\int \underbrace{p(x_t|x_{t-1},u_t)}_{\text{motion model}} \underbrace{\text{bel}(x_{t-1})}_{\text{posterior at } t-1} dx_{t-1}}_{\overline{\text{bel}}(x_{t-1})}
+	\end{equation}
+	
+	\subsection{Kalman filter}
+	\begin{itemize}
+		\item motion model: $x_t = A_tx_{t-1} + B_tu_t + \epsilon_t, \epsilon_t \sim N(0,R_t)$
+		\item measurement model: $z_t = C_tx_t + \delta_t, \delta_t \sim N(0,Q_t)$
+		\item[$A_t$] describes how the state evolves from $t-1$ to $t$ without control input or noise
+		\item[$B_t$] describes how the control input $u_t$ changes the state from $t-1$ to $t$
+		\item[$C_t$] describes how to map the state $x_t$ to an observation $z_t$
+		\item Only predicting would lead to \textbf{diverging} paths
+	\end{itemize}
+	
+	\subsection{Extended Kalman filter}
+	\begin{itemize}
+		\item problem
+			\begin{equation}
+				\underbrace{\text{bel}(x_t)}_{\text{non-Gauss}} = \eta \underbrace{p(z_t|x_t)}_{\text{nonlinear + Gauss}} \int \underbrace{p(x_t|x_{t-1},u_t)}_{\text{nonlinear + Gauss}} \underbrace{\text{bel}(x_{t-1})}_{\text{Gauss}} dx_{t-1}
+			\end{equation}
+		\item first order Taylor expansion
+			\begin{equation}
+				y = f(x) \approx f(a) + \nabla_x f(a) (x - a)
+			\end{equation}
+	\end{itemize}
+
+	\subsection{Particle filter}
+	\begin{itemize}
+		\item Initialization: randomly draw particles in state space
+		\item Measurement update: multiply weights with measurement likelihood
+		\item Resampling: randomly draw new particles from the old set with probabilities proportional to weights
+		\item Time update: Move particles according to the motion model, diffuse particles by adding noise
+	\end{itemize}
+
+	\section{Convolutional Neural Networks}
+	\begin{itemize}
+		\item Convolutional Layer
+			\begin{itemize}
+				\item input is a gray value (2 dimensional) or RGB (3 dimensional) image
+				\item convolution of small filter mask with a small region in the input image
+				\item shared weights for each pixel
+				\item Rectified Linear Unit (ReLU), or differentiable approximation
+					\begin{align}
+						f(x) &= \max(0,x) \\
+						g(x) &= \ln(1 + \exp(x))
+					\end{align}
+				\item emulation of response of individual neuron to visual stimuli
+			\end{itemize}
+		\item Pooling Layer
+			\begin{itemize}
+				\item discard unnecessary information
+				\item popular: Max-Pooling, $2\times2$ window, only take largest response
+				\item less memory consumption
+				\item higher processing speed
+				\item deeper networks possible $\Rightarrow$ solve more complex tasks
+				\item can prevent overfitting	
+				\item make network robust against small shifts			
+			\end{itemize}
+		\item Fully-Connected Layer
+			\begin{itemize}
+				\item final classification
+			\end{itemize}
+	\end{itemize}
+	
+%	\bibliographystyle{abbrv}
+%	\bibliography{Bibliography}
+\end{document}
